@@ -2,9 +2,9 @@ package se.ifmo.pepe.soa2;
 
 import dto.music_band.request.AddSingleRequest;
 import dto.music_band.response.MusicBandView;
-import org.glassfish.jersey.process.internal.RequestScoped;
 import se.ifmo.pepe.soa2.service.SoaService;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -15,8 +15,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Produces(MediaType.APPLICATION_JSON)
+@Path("/grammy")
 @RequestScoped
-public class BandResource {
+public class BandResource  {
 
     @Inject
     private SoaService service;
@@ -31,7 +32,7 @@ public class BandResource {
 
     @DELETE
     @Path("/band/{band-id}/participants")
-    public MusicBandView removeParticipants(@PathParam("band-id")long bandId) {
+    public MusicBandView removeParticipants(@PathParam("band-id") long bandId) {
         return service.removeParticipantFromBand(bandId);
     }
 }

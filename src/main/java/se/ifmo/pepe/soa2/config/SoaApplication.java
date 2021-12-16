@@ -1,9 +1,10 @@
 package se.ifmo.pepe.soa2.config;
 
-import jakarta.ws.rs.core.Application;
-
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
-@ApplicationPath("/grammy")
+@ApplicationPath("/")
 public class SoaApplication extends Application {
+    public SoaApplication() {
+    }
 }
